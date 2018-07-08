@@ -20,9 +20,10 @@ set -e
 
 yum update -y
 yum install -y cpio python27-pip zip python-pip yum-utils
-yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum update -y
+#yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+#yum update -y
 pip install --no-cache-dir virtualenv
+rm -rf env
 virtualenv env
 . env/bin/activate
 pip install --no-cache-dir -r requirements.txt
