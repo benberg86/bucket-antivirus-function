@@ -29,10 +29,10 @@ ifeq ($(circleci), true)
 	docker run --rm -ti \
 		--volumes-from src \
 		amazonlinux:$(AMZ_LINUX_VERSION) \
-		/bin/bash -c "cd $(container_dir) && ./build_lambda.sh"
+		/bin/bash -c "cd $(container_dir) && ./build_lambda_source.sh"
 else
-	docker run --rm -ti \
+	docker run -ti \
 		-v $(current_dir):$(container_dir) \
 		amazonlinux:$(AMZ_LINUX_VERSION) \
-		/bin/bash -c "cd $(container_dir) && ./build_lambda.sh"
+		/bin/bash -c "cd $(container_dir) && ./build_lambda_source.sh"
 endif
